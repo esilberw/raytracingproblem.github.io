@@ -79,7 +79,7 @@ input.
 In this case, the Turing Machine is called a Turing-Recognizable language. It is the equivalent of saying that
 the problem (≡ the language) is undecidable because we do not know how to find an algorithm that solves
 all the instances of the problem in a finite number of steps has there is a possibility of the machine infinitely
-looping.
+looping. Our objective will be to transform such instance of Turing-Reconizable language into an instance of Ray Tracing Problem.
 
 ### Ray Tracing
 
@@ -113,9 +113,102 @@ U′ = v0/2 + c′/4 + 1/2.∞∑i=1 ui/2i+1 = v0/2 + c′/4 + (U − u0/2)/2
 
 V′ = 2∞∑i=1 vi/2i+1 = 2(V − v0/2)
 
-
+These binary transformations will be transposed into geometry using reflective and refractive surfaces in
+order to represent and simulate an optical system.
 
 ## Proposed Solution
+
+An optical system can be represented by an intertwining of ”basic” boxes. By assembling these basic boxes
+together, it forms complex boxes which will represent the two transition functions LeftMove and RightMove
+mentioned above. Each complex box corresponds to one state of the Turing machine’s finite control, and
+implements the transition function defined for that state.
+
+*Each complex box has a unit square through which the ray enters and one or two unit squares from which the
+ray exits. These unit squares are called the entrance windows and the exit windows, respectively. The tape is
+encoded by the (X, Y) coordinates of the ray relative to the unit square windows. We organize these complex
+boxes so that the whole system simulates the Turing machine. The ray enters the entrance window and exits
+out of one of the two exit windows depending on which state the Turing machine may enter next. The system
+then projects the ray onto the next complex box while preserving the coordinates of the ray relative to the
+window, thus simulating the transition of states defined on the Turing Machine. machine [1].*
+
+<center><img src="/Assets/unit_square_repr.png" width="400" height="200" /><br><span>Figure 1: the representation of (U, V) in a square example</span></center>
+
+There are 3 types of basic boxes to be able to represent binary transformations on U and V :
+1. **Readout boxes** - The principle of this box is to simply redirect the ray to the left or right depending
+on the value of the word U given in input consequently according to the X coordinate of the first unit
+square by which the ray enters. This is made possible by the 90◦ inclination of two flat mirrors or
+prisms atop of the box such that if U is superior or equal to 0.5 (hence the first bit of U is 1), the ray
+will be redirected by the right mirror or prism to the right of the basic box, else to the left of the basic
+box by the left mirror or prism of the box. There isn’t exactly a Turing-Equivalent of this operation but it allows us to scout the values on the
+tape to know how to properly handle the shifting operation and especially know if we need to handle
+a bit overflow.
+
+<center><img src="/Assets/reedout_box.png" width="400" height="200" /><br><span>Figure 1: the representation of (U, V) in a square example</span></center>
+
+2. **Multiply2/Divide2 box** - The principle of this box is to redirect the ray into an exit coordinate such
+that one of its coordinate value is either double or half the value of the corresponding coordinate of the
+first unit square by which the ray enters. This is done by using two mirrors or lenses angled such that
+the distance of the ray to the focal line as shown on the figure below either halves or double depending
+on which side of the box the ray enters. By rotating the box from its horizontal axis parallel to the
+focal line, we can decide whether we modify the coordinate U or V and by reversing the box on any
+axis perpendicular to the focal line, we can decide to either multiply or divide that value.
+This is the Turing-equivalent of shifting the bits of U or V once to either the left or right within their
+allocated space on the tape, discarding bit overflow. To handle bit overflow, we will requires a beam
+turner that artificially adds the overflown bit from one coordinate value to the other. For example, to
+shift the tape head to the left, we need to multiply U by two and divide V by two, and adding a bit
+at the beginning of V if there was an overflow on U .
+
+<center><img src="/Assets/multiply2.png" width="400" height="200" /><br><span>Figure 1: the representation of (U, V) in a square example</span></center>
+
+3. **Beam turner box** - The simplest box among the basic boxes, the beam turner will simply change the
+direction of the ray by π/2. It does so using a simple mirror or prism oriented at a π/4 angle. This
+box will be used to link boxes with each other and if used in pairs, can add or subtract a constant
+value to one of the coordinates of the ray.
+This will allow us to simulate the Turing-equivalent of replacing the value read by the tape head with
+a new value.
+
+
+These simple boxes will compose the complex boxes that forms the transition functions LeftMove and
+RightMove that we will now present.
+
+1. Implementing Left-Move The complex box allowing to represent the state q of a Turing Machine
+with a Left-Move transition to a next state q’ is described as follows :
+
+(a) The ray enters a readout box from its unit square called the entrance window of the state to check
+the value of U and redirect the ray accordingly to two distinct paths of operations.
+
+(b) The ray then enters a Multiply2 box that will divide U by two ignoring potential bit overflow.
+Now we will only consider the path chosen if U >= 0.5 in which we don’t need to handle bit
+overflow since we the first bit of V will be the new value c’ that replaces c.
+
+(c) The ray finally enters a two beam turner set of boxes depending on whether the written value c’ is
+0 or 1 and exits this state into the entrance window of the next state q’ such that U′ = 2(U −u0/2)
+V′ = (V + c′)/2.
+
+(d) We can implement a similar structure on the chosen path if U < 0.5.
+
+<center><img src="/Assets/leftMove.png" width="400" height="200" /><br><span>Figure 1: the representation of (U, V) in a square example</span></center>
+
+2. Implementing Right-Move The complex box allowing to represent the state q of a Turing Machine
+with a Right-Move transition to a next state q’ is described as follows :
+
+(a) The ray enters a Readout box from its unit square called the entrance window of the state to
+check the value of U and redirect the ray accordingly to two distinct paths of operations.
+
+(b) The ray then enters a Divide2 box that will divide U by two ignoring potential bit overflow. Now
+we will only consider the path chosen if U >= 0.5.
+
+(c) The ray then enters another Readout box where it will check the value of V and redirect the
+ray accordingly to two new distinct paths of operations. We will now only consider the the path
+chosen if V >= 0.5.
+
+(d) The ray finally enters a set of two beam turner boxes depending on whether the written value
+c’ is 0 or 1 and exits this state into the entrance window of the next state q’ such that U ′ =
+v0/2 + c′/4 + (U − u0/2)/2 and V ′ = 2(V − v0/2).
+
+(e) We can implement a similar structure on the chosen paths if U < 0.5 and/or V < 0.5
+
+<center><img src="/Assets/rightMove.png" width="400" height="200" /><br><span>Figure 1: the representation of (U, V) in a square example</span></center>
 
 ## Implementation
 
@@ -129,5 +222,7 @@ V′ = 2∞∑i=1 vi/2i+1 = 2(V − v0/2)
 ***
 
 ## Conclusion
+
+
 
 ## References
