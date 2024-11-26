@@ -48,6 +48,32 @@ To answer at this question, we need to consider three cases:
 3. w is a finite words on Σ∗ which does not correspond to the encoding rules for any instances of the
 problem, and therefore does not represent a valid instance of the problem considered.
 
+### Turing Machine
+
+A Turing Machine is a 7-tuple (Q, Σ, Γ, δ, q0, qaccept, qreject)
+• Q is the finite set of control states.
+• Σ is the input alphabet not containing the blank symbol of the language.
+• Γ is the tape alphabet.
+• δ : Q × Γ → Q × Γ is the transition function.
+• q0 ∈ Q is the start state.
+• qaccept ∈ Q is the accepting state.
+• qreject ∈ Q is the rejecting state, where qaccept̸ = qreject
+
+A basic Turing Machine is therefore a machine with a tape which will contain the word w (the problem
+instance) to read, a reading head position and control states. The machine will move state depending on the
+input read by the tape head and the transition function which will determine the state to reach depending
+on the input.
+When a Turing Machine stops in a state qaccept, then the word w ∈ L, otherwise, the word w /∈ L. It is even
+sometimes possible for the Turing Machine to loop indefinitely on a word w.
+Consequently, a Turing Machine can reject a word w in two cases:
+1. If the terminal state is a qreject.
+2. When the Turing Machine loop on w and therefore that the Turing Machine does not stop on the
+input.
+In this case, the Turing Machine is called a Turing-Recognizable language. It is the equivalent of saying that
+the problem (≡ the language) is undecidable because we do not know how to find an algorithm that solves
+all the instances of the problem in a finite number of steps has there is a possibility of the machine infinitely
+looping.
+
 ### Ray Tracing
 
 As mentioned above, an instance of the problem can be reduced to a word on a given alphabet. In our case,
@@ -60,16 +86,23 @@ In this way, the input will change on the tape depending on the modifications in
 surfaces of the optical system.
 Therefore, an instance of the problem is defined by two binary fractions U = 0.u0.u1.u2... and V =
 0.v0.v1.v2.... These two words represent the coordinates (x, y) in decimal relative of a unit square.
-We can apply two different operations on U and V .
+We can apply two different operations on U and V.
+
 1. LeftMove δ(q, c) = (q′, c′, L)
 2. RightMove δ(q, c) = (q′, c′, R)
+   
 These two operations allow us to modify the encoding on the U and V words on the tape. The transformations
 U′ and V′ induced by the transition functions are the following.
+
 For the LeftMove operation, we have the following transformations [1]
 U′ = 2∞∑i=1 ui/2i+1 = 2.(U − u0/2)
-V′ = c′/2 + 1/2. ∞∑i=0 vi/2i+1 = c′/2 + v/2
+V′ = c′/2 + 1/2.∞∑i=0 vi/2i+1 = c′/2 + v/2
 
-### Turing Machine
+For the RightMove operation, we have the following transformations [1]
+U′ = v0/2 + c′/4 + 1/2.∞∑i=1 ui/2i+1 = v0/2 + c′/4 + (U − u0/2)/2
+V′ = 2∞∑i=1 vi/2i+1 = 2(V − v0/2)
+
+
 
 ## Proposed Solution
 
