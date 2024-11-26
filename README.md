@@ -118,6 +118,8 @@ order to represent and simulate an optical system.
 
 ## Proposed Solution
 
+### Basic boxes
+
 An optical system can be represented by an intertwining of ”basic” boxes. By assembling these basic boxes
 together, it forms complex boxes which will represent the two transition functions LeftMove and RightMove
 mentioned above. Each complex box corresponds to one state of the Turing machine’s finite control, and
@@ -167,6 +169,7 @@ value to one of the coordinates of the ray.
 This will allow us to simulate the Turing-equivalent of replacing the value read by the tape head with
 a new value.
 
+### Complex Boxes
 
 These simple boxes will compose the complex boxes that forms the transition functions LeftMove and
 RightMove that we will now present.
@@ -210,7 +213,17 @@ v0/2 + c′/4 + (U − u0/2)/2 and V ′ = 2(V − v0/2).
 
 <center><img src="/Assets/rightMove.png" width="400" height="200" /><br><span>Figure 1: the representation of (U, V) in a square example</span></center>
 
+### Reaching a final state
+
+We can simulate the initial transition to the first state of the machine by projecting the ray at the position
+that represent the input of the Turing Machine. In other words, we can simply aim the ray at the first
+complex box of our system. To simulate the transition to a final state, we simply designate a state box to
+be the final state. Therefore, if the ray doesn’t reach this final box, the input coordinates are rejected, while
+if the ray does reach the final box, the input coordinates are accepted.
+
 ## Implementation
+
+Here is a small preview environment that models what the complex boxes systems described earlier. It shows the left and right shifts operations on a simplified Turing machine as well as the system of mirrors that we must construct to simulate such operations using a ray of light in an optical system.
 
 <iframe src="https://codesandbox.io/embed/d85szx?view=preview&expanddevtools=1"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
@@ -222,6 +235,17 @@ v0/2 + c′/4 + (U − u0/2)/2 and V ′ = 2(V − v0/2).
 ***
 
 ## Conclusion
+
+We have now demonstrated the capability of the optical system to operate like a Turing Machine and simulate
+any reversible Turing machine where the number of complex boxes required is equal to the number of finite
+states of the Machine. Therefore the problem of predicting the exact trajectory of a light ray, otherwise
+called the Ray Tracing problem, can be as difficult as a problem of reaching a final state for an equivalent
+reversible Turing Machine. Since the latter is undecidable, we can affirm that the Ray Tracing Problem is
+also undecidable.
+
+
+
+
 
 
 
