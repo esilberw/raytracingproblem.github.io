@@ -4,4 +4,4 @@ Elliot SILBERWASSER, Emile MERIAN
 
 ## Live Preview
 
-Check out the [CodeSandbox Live Preview](https://codesandbox.io/s/your-sandbox-id) to see the project in action.
+Check out the [CodeSandbox Live Preview](https://d85szx.csb.app/) to see the project in action.
