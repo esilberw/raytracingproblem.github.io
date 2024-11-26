@@ -51,12 +51,19 @@ problem, and therefore does not represent a valid instance of the problem consid
 ### Turing Machine
 
 A Turing Machine is a 7-tuple (Q, Σ, Γ, δ, q0, qaccept, qreject)
+
 • Q is the finite set of control states.
+
 • Σ is the input alphabet not containing the blank symbol of the language.
+
 • Γ is the tape alphabet.
+
 • δ : Q × Γ → Q × Γ is the transition function.
+
 • q0 ∈ Q is the start state.
+
 • qaccept ∈ Q is the accepting state.
+
 • qreject ∈ Q is the rejecting state, where qaccept̸=qreject
 
 A basic Turing Machine is therefore a machine with a tape which will contain the word w (the problem
