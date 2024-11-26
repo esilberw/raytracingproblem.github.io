@@ -104,11 +104,13 @@ U′ and V′ induced by the transition functions are the following.
 For the LeftMove operation, we have the following transformations[1]:
 
 U′ = 2∞∑i=1 ui/2i+1 = 2.(U − u0/2)
+
 V′ = c′/2 + 1/2.∞∑i=0 vi/2i+1 = c′/2 + v/2
 
 For the RightMove operation, we have the following transformations[1]:
 
 U′ = v0/2 + c′/4 + 1/2.∞∑i=1 ui/2i+1 = v0/2 + c′/4 + (U − u0/2)/2
+
 V′ = 2∞∑i=1 vi/2i+1 = 2(V − v0/2)
 
 
