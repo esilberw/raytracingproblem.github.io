@@ -136,7 +136,7 @@ window, thus simulating the transition of states defined on the Turing Machine. 
 <center><img src="/Assets/unit_square_repr.png" width="400" height="200" /><br><span></span></center>
 
 There are 3 types of basic boxes to be able to represent binary transformations on U and V :
-1. **Readout boxes** - The principle of this box is to simply redirect the ray to the left or right depending
+**Readout boxes** - The principle of this box is to simply redirect the ray to the left or right depending
 on the value of the word U given in input consequently according to the X coordinate of the first unit
 square by which the ray enters. This is made possible by the 90◦ inclination of two flat mirrors or
 prisms atop of the box such that if U is superior or equal to 0.5 (hence the first bit of U is 1), the ray
@@ -144,10 +144,9 @@ will be redirected by the right mirror or prism to the right of the basic box, e
 box by the left mirror or prism of the box. There isn’t exactly a Turing-Equivalent of this operation but it allows us to scout the values on the
 tape to know how to properly handle the shifting operation and especially know if we need to handle
 a bit overflow.
-
 <center><img src="/Assets/reedout_box.png" width="400" height="200" /><br><span></span></center>
 
-2. **Multiply2/Divide2 box** - The principle of this box is to redirect the ray into an exit coordinate such
+**Multiply2/Divide2 box** - The principle of this box is to redirect the ray into an exit coordinate such
 that one of its coordinate value is either double or half the value of the corresponding coordinate of the
 first unit square by which the ray enters. This is done by using two mirrors or lenses angled such that
 the distance of the ray to the focal line as shown on the figure below either halves or double depending
@@ -159,10 +158,9 @@ allocated space on the tape, discarding bit overflow. To handle bit overflow, we
 turner that artificially adds the overflown bit from one coordinate value to the other. For example, to
 shift the tape head to the left, we need to multiply U by two and divide V by two, and adding a bit
 at the beginning of V if there was an overflow on U .
-
 <center><img src="/Assets/multiply2.png" width="400" height="200" /><br><span></span></center>
 
-3. **Beam turner box** - The simplest box among the basic boxes, the beam turner will simply change the
+**Beam turner box** - The simplest box among the basic boxes, the beam turner will simply change the
 direction of the ray by π/2. It does so using a simple mirror or prism oriented at a π/4 angle. This
 box will be used to link boxes with each other and if used in pairs, can add or subtract a constant
 value to one of the coordinates of the ray.
@@ -174,7 +172,7 @@ a new value.
 These simple boxes will compose the complex boxes that forms the transition functions LeftMove and
 RightMove that we will now present.
 
-1. Implementing Left-Move The complex box allowing to represent the state q of a Turing Machine
+Implementing Left-Move The complex box allowing to represent the state q of a Turing Machine
 with a Left-Move transition to a next state q’ is described as follows :
 
 (a) The ray enters a readout box from its unit square called the entrance window of the state to check
@@ -192,7 +190,7 @@ V′ = (V + c′)/2.
 
 <center><img src="/Assets/leftMove.png" width="400" height="200" /><br><span></span></center>
 
-2. Implementing Right-Move The complex box allowing to represent the state q of a Turing Machine
+Implementing Right-Move The complex box allowing to represent the state q of a Turing Machine
 with a Right-Move transition to a next state q’ is described as follows :
 
 (a) The ray enters a Readout box from its unit square called the entrance window of the state to
