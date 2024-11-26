@@ -50,7 +50,7 @@ problem, and therefore does not represent a valid instance of the problem consid
 
 ### Turing Machine
 
-A Turing Machine is a 7-tuple (Q, Σ, Γ, δ, q0, qaccept, qreject)
+A Turing Machine is a 7-tuple (Q, Σ, Γ, δ, q0, qaccept, qreject):
 
 • Q is the finite set of control states.
 
@@ -101,11 +101,13 @@ We can apply two different operations on U and V.
 These two operations allow us to modify the encoding on the U and V words on the tape. The transformations
 U′ and V′ induced by the transition functions are the following.
 
-For the LeftMove operation, we have the following transformations [1]
+For the LeftMove operation, we have the following transformations[1]:
+
 U′ = 2∞∑i=1 ui/2i+1 = 2.(U − u0/2)
 V′ = c′/2 + 1/2.∞∑i=0 vi/2i+1 = c′/2 + v/2
 
-For the RightMove operation, we have the following transformations [1]
+For the RightMove operation, we have the following transformations[1]:
+
 U′ = v0/2 + c′/4 + 1/2.∞∑i=1 ui/2i+1 = v0/2 + c′/4 + (U − u0/2)/2
 V′ = 2∞∑i=1 vi/2i+1 = 2(V − v0/2)
 
