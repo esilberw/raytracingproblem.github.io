@@ -57,7 +57,7 @@ A Turing Machine is a 7-tuple (Q, Σ, Γ, δ, q0, qaccept, qreject)
 • δ : Q × Γ → Q × Γ is the transition function.
 • q0 ∈ Q is the start state.
 • qaccept ∈ Q is the accepting state.
-• qreject ∈ Q is the rejecting state, where qaccept̸ = qreject
+• qreject ∈ Q is the rejecting state, where qaccept̸=qreject
 
 A basic Turing Machine is therefore a machine with a tape which will contain the word w (the problem
 instance) to read, a reading head position and control states. The machine will move state depending on the
