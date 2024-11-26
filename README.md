@@ -38,7 +38,7 @@ undecidable the the problem B must me undecidable
 
 ## Implementation
 
-<iframe src="https://d85szx.csb.app/"
+<iframe src="https://codesandbox.io/p/sandbox/hardcore-sound-d85szx"
      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
      title="Ray Tracing Problem Project"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
