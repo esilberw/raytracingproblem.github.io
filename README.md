@@ -133,7 +133,7 @@ out of one of the two exit windows depending on which state the Turing machine m
 then projects the ray onto the next complex box while preserving the coordinates of the ray relative to the
 window, thus simulating the transition of states defined on the Turing Machine. machine [1].*
 
-<center><img src="/Assets/unit_square_repr.png" width="400" height="200" /><br><span>Figure 1: the representation of (U, V) in a square example</span></center>
+<center><img src="/Assets/unit_square_repr.png" width="400" height="200" /><br><span></span></center>
 
 There are 3 types of basic boxes to be able to represent binary transformations on U and V :
 1. **Readout boxes** - The principle of this box is to simply redirect the ray to the left or right depending
@@ -145,7 +145,7 @@ box by the left mirror or prism of the box. There isn’t exactly a Turing-Equiv
 tape to know how to properly handle the shifting operation and especially know if we need to handle
 a bit overflow.
 
-<center><img src="/Assets/reedout_box.png" width="400" height="200" /><br><span>Figure 1: the representation of (U, V) in a square example</span></center>
+<center><img src="/Assets/reedout_box.png" width="400" height="200" /><br><span></span></center>
 
 2. **Multiply2/Divide2 box** - The principle of this box is to redirect the ray into an exit coordinate such
 that one of its coordinate value is either double or half the value of the corresponding coordinate of the
@@ -160,7 +160,7 @@ turner that artificially adds the overflown bit from one coordinate value to the
 shift the tape head to the left, we need to multiply U by two and divide V by two, and adding a bit
 at the beginning of V if there was an overflow on U .
 
-<center><img src="/Assets/multiply2.png" width="400" height="200" /><br><span>Figure 1: the representation of (U, V) in a square example</span></center>
+<center><img src="/Assets/multiply2.png" width="400" height="200" /><br><span></span></center>
 
 3. **Beam turner box** - The simplest box among the basic boxes, the beam turner will simply change the
 direction of the ray by π/2. It does so using a simple mirror or prism oriented at a π/4 angle. This
@@ -190,7 +190,7 @@ V′ = (V + c′)/2.
 
 (d) We can implement a similar structure on the chosen path if U < 0.5.
 
-<center><img src="/Assets/leftMove.png" width="400" height="200" /><br><span>Figure 1: the representation of (U, V) in a square example</span></center>
+<center><img src="/Assets/leftMove.png" width="400" height="200" /><br><span></span></center>
 
 2. Implementing Right-Move The complex box allowing to represent the state q of a Turing Machine
 with a Right-Move transition to a next state q’ is described as follows :
@@ -211,7 +211,7 @@ v0/2 + c′/4 + (U − u0/2)/2 and V ′ = 2(V − v0/2).
 
 (e) We can implement a similar structure on the chosen paths if U < 0.5 and/or V < 0.5
 
-<center><img src="/Assets/rightMove.png" width="400" height="200" /><br><span>Figure 1: the representation of (U, V) in a square example</span></center>
+<center><img src="/Assets/rightMove.png" width="400" height="200" /><br><span></span></center>
 
 ### Reaching a final state
 
