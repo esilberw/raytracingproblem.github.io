@@ -3,4 +3,4 @@ plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 title: Ray Tracing Problem 
 description: [The purpose of this webpage is to introduce the reader to the Ray Tracing Problem.]
-theme: jekyll-theme-cayman
+theme: jekyll-theme-minimal
