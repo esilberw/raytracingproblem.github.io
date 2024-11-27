@@ -1,3 +1,6 @@
+* TOC
+{:toc}
+
 # The Ray Tracing Problem
 Elliot SILBERWASSER, Emile MERIAN
 
