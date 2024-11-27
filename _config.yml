@@ -1,4 +1,4 @@
 title: Ray Tracing Problem 
 description: [The purpose of this webpage is to introduce the reader to the Ray Tracing Problem.]
 theme: jekyll-theme-minimal
-
+markdown: kramdown
