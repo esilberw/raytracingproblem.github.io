@@ -10,6 +10,8 @@ Elliot SILBERWASSER, Emile MERIAN
 
 The ray tracing problem is a decision problem defined as followed : given an environment of refractive and infractive complex 3D shapes called an optical system, we want to know if a ray projected from a starting coordinate in this environment will reach a destination coordinate. This project seeks to demonstrate that The ray tracing of three-dimensional optical systems consisting of quadratic reflective or refractive objects is undecidable, even if all the objects are presented by a system of rational quadratic inequalities.
 
+Click <a href="https://github.com/esilberw/raytracingproblem.github.io/blob/main/Assets/Report___INFO_F420___Project__2.pdf" target="_blank" style="color: blue; font-weight: bold;">here</a> to view a PDF report documenting all the details of the project.
+
 ## Introduction
 
 To prove the undecidability of the ray tracing problem, we will focus on another known undecidable problem, the Membership problem. By reducing all instances of the membership problem into instances of the ray tracing problem, we will prove that not all instances of the ray tracing problem can be decided, and as such is undecidable.
@@ -170,7 +172,9 @@ direction of the ray by π/2. It does so using a simple mirror or prism oriented
 box will be used to link boxes with each other and if used in pairs, can add or subtract a constant
 value to one of the coordinates of the ray.
 This will allow us to simulate the Turing-equivalent of replacing the value read by the tape head with
-a new value.
+a new value. A simple example of adding 0.5 to the coordinates of Y to the ray of light is shown below.
+
+<center><img src="./Assets/beamTurner.png" width="400" height="200" /><br><span></span></center>
 
 ### Complex Boxes
 
