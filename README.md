@@ -1,8 +1,10 @@
-* TOC
-{:toc}
+
 
 # The Ray Tracing Problem
 Elliot SILBERWASSER, Emile MERIAN
+
+* TOC
+{:toc}
 
 ### Abstract
 
@@ -244,10 +246,12 @@ called the Ray Tracing problem, can be as difficult as a problem of reaching a f
 reversible Turing Machine. Since the latter is undecidable, we can affirm that the Ray Tracing Problem is
 also undecidable.
 
-
-
-
-
-
-
 ## References
+
+[1] J. D. Tygar J. H. Reif and A. Yoshida. “Computability and Complexity of Ray Tracing. (English)”.
+In: Discrete Comput Geom 11:265-287 (1994). doi: https://link.springer.com/content/pdf/10.
+1007/bf02574009.pdf.
+
+[2] Chad Palmer. “A Complete Web Page: Building a Turing Machine in JavaScript”. In: (2020). doi:
+https://medium.com/swlh/a-complete-web-page-building-a-turing-machine-in-javascript-
+d6c32d3708c4
