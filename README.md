@@ -3,9 +3,7 @@
 # The Ray Tracing Problem
 Elliot SILBERWASSER, Emile MERIAN
 
-* TOC
-{:toc}
-
+Webpage version of the project: https://esilberw.github.io/raytracingproblem.github.io/
 CodeSandbox Visualizer: https://d85szx.csb.app/
 ### Abstract
 
