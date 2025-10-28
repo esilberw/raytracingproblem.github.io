@@ -6,6 +6,7 @@ Elliot SILBERWASSER, Emile MERIAN
 * TOC
 {:toc}
 
+<a href="https://d85szx.csb.app/ \a>
 ### Abstract
 
 The ray tracing problem is a decision problem defined as followed : given an environment of refractive and infractive complex 3D shapes called an optical system, we want to know if a ray projected from a starting coordinate in this environment will reach a destination coordinate. This project seeks to demonstrate that The ray tracing of three-dimensional optical systems consisting of quadratic reflective or refractive objects is undecidable, even if all the objects are presented by a system of rational quadratic inequalities.
