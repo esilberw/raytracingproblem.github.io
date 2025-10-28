@@ -4,6 +4,7 @@
 Elliot SILBERWASSER, Emile MERIAN
 
 Webpage version of the project: https://esilberw.github.io/raytracingproblem.github.io/
+
 CodeSandbox Visualizer: https://d85szx.csb.app/
 ### Abstract
 
